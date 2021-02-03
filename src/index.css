@@ -1,0 +1,34 @@
+.title {
+  text-align: center;
+}
+
+.movie-image {
+  width: 170px;
+  height: 200px;
+}
+
+
+.cards {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  padding-left: 7%;
+}
+
+
+.movie {
+  margin-left: 23%;
+}
+
+.movie-p-tag {
+  text-align: center;
+  width: 600px;
+  margin-left: 25%;
+}
+
+.movie-info {
+  text-align: center;
+}
+
+
