@@ -5,7 +5,7 @@ function MovieList({movies}) {
     return (
         <div className="cards">
             {movies.map((movie) => {
-                return <Movie movie={movie}/>
+                return <Movie key={movie.id} movie={movie}/>
             })}
         </div>
     )
