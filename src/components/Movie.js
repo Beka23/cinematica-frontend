@@ -6,9 +6,9 @@ function Movie({movie}) {
         <div className="card">
             <div className="card-info">
                 <ul>
-                    <img className="movie-image" src={movie.image} alt={movie.name}></img>
-                    <h5>{movie.name}</h5>
-                    <NavLink to={`/movies/${movie.id}`}>Watch</NavLink>
+                    <img className="movie-image" src={movie.image} alt={movie.name}>  </img>
+                    <br></br>
+                    <NavLink className="movie-watch-link" to={`/movies/${movie.id}`}>Watch</NavLink>
                 </ul>
             </div>
         </div>
