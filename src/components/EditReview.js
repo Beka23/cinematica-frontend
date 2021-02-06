@@ -2,8 +2,7 @@ import React, { useState } from "react"
 
 function EditReview({ review, onUpdateReview }) {
 
-    const {id, user_id, content} = review
-
+    const {id,  content} = review
     const [reviewBody, setReviewBody] = useState(content)
 
     function handleFormSubmit(e) {

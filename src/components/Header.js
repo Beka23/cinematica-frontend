@@ -1,12 +1,12 @@
 import React from "react"
-import Login from "./Login"
+import Navbar from "./Navbar"
 
-function Header() {
+function Header({currentUser, setCurrentUser}) {
     return (
         <div>
-            <h1 className="title">Cinematica</h1>
-            <Login />
-        </div>
+        <h1 className="title">Cinematica</h1>
+        <Navbar  currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+    </div>
     )
 }
 

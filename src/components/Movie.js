@@ -15,7 +15,6 @@ function Movie({movie}) {
             <div className="card-info">
                 <ul>
                     <img className="movie-image" src={movie.image} alt={movie.name} onClick={movieDetails}></img>
-                    <h5>{movie.name}</h5>
                 </ul>
             </div>
         </div>

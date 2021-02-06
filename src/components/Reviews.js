@@ -6,11 +6,13 @@ function Reviews({ review, currentUser, onDeleteReview, onUpdateReview }) {
     const [isEditing, setIsEditing] = useState(false)
 
     function handleDeleteReview(e) {
+       if(window.confirm("Delete review permanently?")) {
         fetch(`http://localhost:3000/reviews/${review.id}`, {
             method: "DELETE"
         })
 
         onDeleteReview(review.id)
+       }
     }
 
     function handleEditReview() {
@@ -18,13 +20,13 @@ function Reviews({ review, currentUser, onDeleteReview, onUpdateReview }) {
     }
 
     function handleUpdateReview(updatedReview) {
-        setIsEditing(false)
         onUpdateReview(updatedReview) 
+        setIsEditing(false)
     }
 
     return (
         <div className="comments">
-            {isEditing ? <EditReview onUpdateReview={handleUpdateReview} review={review} /> : review.content}
+            {isEditing ? <EditReview onUpdateReview={handleUpdateReview} review={review} /> : review.content }
             {currentUser ? <button onClick={handleDeleteReview}>🗑️</button> : ""} {currentUser ? <button onClick={handleEditReview}>✏️</button> : ""}
         </div>
     )
