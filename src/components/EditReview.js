@@ -31,7 +31,6 @@ function EditReview({ review, onUpdateReview }) {
             <form className="edit-message" onSubmit={handleFormSubmit}>
                 <input
                     type="text"
-                    name="comment"
                     autoComplete="off"
                     value={reviewBody}
                     onChange={(e) => setReviewBody(e.target.value)}

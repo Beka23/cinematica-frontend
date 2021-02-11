@@ -5,16 +5,21 @@ import LikesDislikes from "./LikesDislikes";
 import Reviews from "./Reviews";
 
 
-function MovieDetails({ currentUser }) {
+
+function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
 
     const [movie, setMovie] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams()
     const [reviewContent, setReviewContent] = useState("")
     const [reviews, setReviews] = useState([])
- 
-  
 
+    const [isLiked, setIsLiked] = useState(false)
+    const [isDisLiked, setIsDisliked] = useState(false)
+
+
+   console.log(isLiked)
+   console.log(isDisLiked)
 
     useEffect(() => {
         fetch(`http://localhost:3000/movies/${params.id}`)
@@ -24,9 +29,15 @@ function MovieDetails({ currentUser }) {
                 setIsLoaded(true)
                 setReviews(movie.reviews)
             })
-    }, [params.id])
+    }, [])
 
-    if (!isLoaded) return <h2>Loading...</h2>;
+
+
+
+
+
+    if (!isLoaded) return <h2 className="white-texts movie-info">Loading...</h2>;
+
 
 
     //function for reviewing a movie
@@ -40,6 +51,7 @@ function MovieDetails({ currentUser }) {
                 },
                 body: JSON.stringify({
                     user_id: currentUser.id,
+                    user_username: currentUser.username,
                     movie_id: movie.id,
                     content: reviewContent
                 })
@@ -89,6 +101,8 @@ function MovieDetails({ currentUser }) {
         setMovie(updatedMovieObj)
     }
 
+
+
     return (
 
         <div>
@@ -98,27 +112,40 @@ function MovieDetails({ currentUser }) {
             <p className="movie-p-tag">{movie.description}</p>
             <div className="movie-info">
 
-                <LikesDislikes movie={movie} onUpdateMovieLikes={onUpdateMovieLikes} currentUser={currentUser}/>
+                <LikesDislikes
+                    movie={movie}
+                    onUpdateMovieLikes={onUpdateMovieLikes}
+                    currentUser={currentUser}
+                    addToFavMovies={addToFavMovies}
+                    isLiked={isLiked}
+                    setIsLiked={setIsLiked}
+                    isDisLiked={isDisLiked}
+                    setIsDisliked={setIsDisliked}
+                    removeFromFavMovies={removeFromFavMovies}
+                />
 
-                <h3>Reviews:</h3>
+             
+
+
+
+                <h3>Reviews: </h3>
 
                 <div className="review">
-                    {reviews.map((review) => {
-                        return <Reviews key={review.id} review={review} currentUser={currentUser} onDeleteReview={handleDeleteReview} onUpdateReview={handleUpdateReview} />
-                    })}
-                    <br></br>
                     <form onSubmit={handleReviews} >
                         <input
+                            className="review-input"
                             type="text"
-                            name="comment"
                             value={reviewContent}
                             autoComplete="off"
                             placeholder="Add a review"
                             onChange={(e) => { setReviewContent(e.target.value) }}></input>
                         <button type="submit">Post</button>
                     </form>
+                    <br></br>
+                    {reviews.map((review) => {
+                        return <Reviews key={review.id} review={review} currentUser={currentUser} onDeleteReview={handleDeleteReview} onUpdateReview={handleUpdateReview} />
+                    })}
                 </div>
-
             </div>
         </div>
     )

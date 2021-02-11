@@ -12,9 +12,9 @@ function Navbar({currentUser, setCurrentUser}) {
     }
 
     return (
-        <div>
+        <div className="navbar">
             <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-            <button onClick={handleFavortieMoviesPage}>My favortie movies</button>
+            {currentUser ? <button className="button" onClick={handleFavortieMoviesPage}>My favortie movies</button> : ""}
         </div>
     )
 }

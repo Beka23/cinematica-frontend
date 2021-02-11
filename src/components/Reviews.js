@@ -25,11 +25,13 @@ function Reviews({ review, currentUser, onDeleteReview, onUpdateReview }) {
     }
 
     return (
-        <div className="comments">
-            {isEditing ? <EditReview onUpdateReview={handleUpdateReview} review={review} /> : review.content }
+        <div className="reviews" >
+            {isEditing ? <EditReview onUpdateReview={handleUpdateReview} review={review} /> :  `${review.user_username}: ${review.content}` }
             {currentUser ? <button onClick={handleDeleteReview}>🗑️</button> : ""} {currentUser ? <button onClick={handleEditReview}>✏️</button> : ""}
         </div>
     )
 }
 
 export default Reviews
+
+

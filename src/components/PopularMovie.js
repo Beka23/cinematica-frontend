@@ -1,33 +1,27 @@
-import React from "react"
+import React, { useState } from "react"
 import {useHistory} from "react-router-dom"
 
+function PopularMovie({movie}) {
 
-function Movie({movie}) {
-    
     const history = useHistory()
-
-    // const [isLiked, setIsLiked] = useState(false)
-    // const [isDisLiked, setIsDisliked] = useState(false)
 
 
 
     function movieDetails() { 
-        history.push(`/movies/${movie.id}`) 
+        history.push(`/movies/${movie.id}`)      
     }
 
-
-   
-    
 
     return (
         <div className="card">
             <div className="card-info">
                 <ul>
                     <img className="movie-image" src={movie.image} alt={movie.name} onClick={movieDetails}></img>
+                    {/* {movie.name} */}
                 </ul>
             </div>
         </div>
     )
 }
 
-export default Movie
+export default PopularMovie

@@ -8,8 +8,12 @@ function Login({currentUser, setCurrentUser}) {
           method: "POST",
         })
           .then((r) => r.json())
-          .then(setCurrentUser);
+          .then(data => {
+            setCurrentUser(data)
+          })
       }
+
+   
     
       function logout() {
         setCurrentUser(null);
@@ -17,12 +21,12 @@ function Login({currentUser, setCurrentUser}) {
 
 
     return (
-        <div>
+        <div >
 
             {currentUser ? (
-          <button onClick={logout}>Logout</button>
+          <button className="button" onClick={logout}>Logout</button>
         ) : (
-          <button onClick={login}>Login</button>
+          <button className="button" onClick={login}>Login</button>
         )}      
     
         </div>

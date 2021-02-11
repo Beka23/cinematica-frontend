@@ -1,9 +1,17 @@
 
+.body {
+  background-image: url("https://wallpapercave.com/wp/wp2686927.jpg");
+}
 
-
+.title-img {
+  width: 50px;
+  height: 40px;
+}
 
 .title {
   text-align: center;
+  font-style: italic;
+  color: aliceblue;
 }
 
 .movie-image {
@@ -29,10 +37,12 @@
   text-align: center;
   width: 600px;
   margin-left: 25%;
+  color: aliceblue;
 }
 
 .movie-info {
   text-align: center;
+  color: aliceblue;
 }
 
 .movie-watch-link {
@@ -41,13 +51,47 @@
 
 .movie-detail-name {
   text-align: center;
+  color: aliceblue;
 }
 
 .movie-detail-genre {
   text-align: center;
+  color: aliceblue;
+}
+
+ .button {
+  background-color: #7c7876;
+  color: rgb(12, 12, 12);
+  padding: 0.50rem;
+  margin: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.button:hover{
+  color: aliceblue;
+}
+
+.search input {
+  width: 90%;
+  font-size: 1rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  margin-left: 5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding-left: 1rem;
+}
+
+.filter {
+  text-align: center;
+}
+
+.white-texts {
+  color: aliceblue;
 }
 
 
-      
 
 
+ 

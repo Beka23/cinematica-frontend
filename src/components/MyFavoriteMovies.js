@@ -1,12 +1,22 @@
 import React from "react"
+import MyFavoriteMoviesList from "./MyFavoriteMoviesList"
 
-function MyFavoriteMovies({movies, currentUser}) {
+
+
+function MyFavoriteMovies({ favMovie }) {
 
     return (
         <div>
-            <h1>HERE'S THE LIST OF THE MOVIES THAT YOU LIKED:</h1>
+            <h1 className="movie-detail-name">Movies that you liked:</h1>
+            <div className="cards">
+                {favMovie.map((movie) => {
+                    return <MyFavoriteMoviesList key={movie.id} movie={movie} />
+                })}
+            </div>
         </div>
     )
+
 }
 
 export default MyFavoriteMovies
+
