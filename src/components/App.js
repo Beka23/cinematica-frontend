@@ -19,10 +19,12 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:3000/movies")
       .then(r => r.json())
-      .then(data => {
+      .then((data) => {
         setMovies(data)
       })
   }, [])
+
+  
 
 
   //adding a new liked movie to the My Favorite Movies list

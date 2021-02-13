@@ -5,60 +5,15 @@ function LikesDislikes({
     onUpdateMovieLikes,
     currentUser,
     addToFavMovies,
-    isLiked,
-    setIsLiked,
-    isDisLiked,
-    setIsDisliked,
     removeFromFavMovies }) {
     
-
     
-    
-   
+ 
     // function for LIKING the movie
     function handleLikeMovie() {
         
         if (currentUser) {
-            
-            if (isDisLiked === false && isLiked === false) {
-                fetch(`http://localhost:3000/movies/${movie.id}`, {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        likes: movie.likes + 1
-                    })
-                })
-                    .then(r => r.json())
-                    .then(data => {
-                        onUpdateMovieLikes(data)
-                        setIsLiked(true)
-                        //adds movie to fav movie list when liked
-                        addToFavMovies(movie)
-                    })
-
-
-
-            } else if (isLiked === true) {
-                fetch(`http://localhost:3000/movies/${movie.id}`, {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        likes: movie.likes - 1
-                    })
-                })
-
-                    .then(r => r.json())
-                    .then(data => {
-                        onUpdateMovieLikes(data)
-                        setIsLiked(false)
-                        //removes movie from fav movie list when like removed
-                        removeFromFavMovies(movie.id)
-                    })
-            } else if (isDisLiked === true && isLiked === false) {
+            if (movie.disliked === false && movie.liked === false) {
                 fetch(`http://localhost:3000/movies/${movie.id}`, {
                     method: "PATCH",
                     headers: {
@@ -66,15 +21,55 @@ function LikesDislikes({
                     },
                     body: JSON.stringify({
                         likes: movie.likes + 1,
-                        dislikes: movie.dislikes - 1
+                        // setting movie's liked attr to TRUE
+                        liked: movie.liked = true
                     })
                 })
                     .then(r => r.json())
                     .then(data => {
                         onUpdateMovieLikes(data)
-                        setIsLiked(true)
+                        //adds movie to fav movie list when liked
                         addToFavMovies(movie)
-                        setIsDisliked(false)
+                    })
+
+
+
+            } else if (movie.liked === true) {
+                fetch(`http://localhost:3000/movies/${movie.id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        likes: movie.likes - 1,
+                        //setting movie's liked attr to FALSE
+                        liked: movie.liked = false
+                    })
+                })
+
+                    .then(r => r.json())
+                    .then(data => {
+                        onUpdateMovieLikes(data)
+                        //removes movie from fav movie list when like removed
+                        removeFromFavMovies(movie.id)
+                    })
+            } else if (movie.disliked === true && movie.liked === false) {
+                fetch(`http://localhost:3000/movies/${movie.id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        likes: movie.likes + 1,
+                        dislikes: movie.dislikes - 1,
+                        liked: movie.liked = true, 
+                        disliked: movie.disliked = false
+                    })
+                })
+                    .then(r => r.json())
+                    .then(data => {
+                        onUpdateMovieLikes(data)
+                        addToFavMovies(movie)
                     })
             }
         } else {
@@ -91,23 +86,23 @@ function LikesDislikes({
     // function for DISLIKING the movie
     function handleDislikeMovie() {
         if (currentUser) {
-            if (isLiked === false && isDisLiked === false) {
+            if (movie.liked === false && movie.disliked === false) {
                 fetch(`http://localhost:3000/movies/${movie.id}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        dislikes: movie.dislikes + 1
+                        dislikes: movie.dislikes + 1,
+                        disliked: movie.disliked = true
                     })
                 })
 
                     .then(r => r.json())
                     .then(data => {
                         onUpdateMovieLikes(data)
-                        setIsDisliked(true)
                     })
-            } else if (isDisLiked === true) {
+            } else if (movie.disliked === true) {
 
                 fetch(`http://localhost:3000/movies/${movie.id}`, {
                     method: "PATCH",
@@ -116,15 +111,15 @@ function LikesDislikes({
                     },
                     body: JSON.stringify({
                         dislikes: movie.dislikes - 1,
+                        disliked: movie.disliked = false
                     })
                 })
 
                     .then(r => r.json())
                     .then(data => {
                         onUpdateMovieLikes(data)
-                        setIsDisliked(false)
                     })
-            } else if (isLiked === true && isDisLiked === false) {
+            } else if (movie.liked === true && movie.disliked === false) {
                 fetch(`http://localhost:3000/movies/${movie.id}`, {
                     method: "PATCH",
                     headers: {
@@ -132,15 +127,15 @@ function LikesDislikes({
                     },
                     body: JSON.stringify({
                         dislikes: movie.dislikes + 1,
-                        likes: movie.likes - 1
+                        likes: movie.likes - 1,
+                        disliked: movie.disliked = true, 
+                        liked: movie.liked = false
                     })
                 })
 
                     .then(r => r.json())
                     .then(data => {
                         onUpdateMovieLikes(data)
-                        setIsDisliked(true)
-                        setIsLiked(false)
                         removeFromFavMovies(movie.id)
                     })
             }
@@ -158,6 +153,8 @@ function LikesDislikes({
             <button onClick={handleDislikeMovie}>👎🏼{movie.dislikes}</button>
         </div>
     )
+
 }
 
 export default LikesDislikes
+

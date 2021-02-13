@@ -13,13 +13,9 @@ function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
     const params = useParams()
     const [reviewContent, setReviewContent] = useState("")
     const [reviews, setReviews] = useState([])
-
-    const [isLiked, setIsLiked] = useState(false)
-    const [isDisLiked, setIsDisliked] = useState(false)
+   
 
 
-   console.log(isLiked)
-   console.log(isDisLiked)
 
     useEffect(() => {
         fetch(`http://localhost:3000/movies/${params.id}`)
@@ -29,7 +25,7 @@ function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
                 setIsLoaded(true)
                 setReviews(movie.reviews)
             })
-    }, [])
+    }, [params.id])
 
 
 
@@ -117,10 +113,6 @@ function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
                     onUpdateMovieLikes={onUpdateMovieLikes}
                     currentUser={currentUser}
                     addToFavMovies={addToFavMovies}
-                    isLiked={isLiked}
-                    setIsLiked={setIsLiked}
-                    isDisLiked={isDisLiked}
-                    setIsDisliked={setIsDisliked}
                     removeFromFavMovies={removeFromFavMovies}
                 />
 

@@ -5,19 +5,10 @@ import {useHistory} from "react-router-dom"
 function Movie({movie}) {
     
     const history = useHistory()
-
-    // const [isLiked, setIsLiked] = useState(false)
-    // const [isDisLiked, setIsDisliked] = useState(false)
-
-
-
+    
     function movieDetails() { 
         history.push(`/movies/${movie.id}`) 
     }
-
-
-   
-    
 
     return (
         <div className="card">
