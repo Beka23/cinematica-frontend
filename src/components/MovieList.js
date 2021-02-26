@@ -2,15 +2,17 @@ import React, { useState } from "react"
 import Movie from "./Movie"
 import Search from "./Search"
 
+
+
 function MovieList({ movies }) {
 
     const [search, setSearch] = useState("")
     const [selectedGenre, setSelectedGenre] = useState("All")
+    const [voiceSearch, setVoiceSearch] = useState("")
 
-    
 
     const filteredSearchMovies = movies.filter((movie) => {
-        return movie.name.toLowerCase().includes(search.toLowerCase())
+        return movie.name.toLowerCase().includes(search.toLowerCase() || voiceSearch.toLowerCase())
     })
 
     const filteredMoviesByGenre = filteredSearchMovies.filter((movie)=> {
@@ -25,14 +27,16 @@ function MovieList({ movies }) {
         setSelectedGenre(e.target.value)
     }
 
-
+   
     return (
         <div>
-            < Search search = { search }  setSearch = { setSearch } />
+            <Search search={search}  setSearch={setSearch} voiceSearch={voiceSearch} setVoiceSearch={setVoiceSearch} />
             <br></br>
             <div className="filter">
-                    <select onChange={handleMovieGenreChange}>
-                        <option value="All">Genres (All)</option>
+                <span className="white-texts">Genres</span>
+                <br></br>
+                <select onChange={handleMovieGenreChange} className="select-css">
+                        <option value="All">All</option>
                         <option value="Action">Action</option>
                         <option value="Animation">Animation</option>
                         <option value="Adventure">Adventure</option>
@@ -42,7 +46,7 @@ function MovieList({ movies }) {
                         <option value="Comedy">Comedy</option>
                         <option value="Fantasy">Fantasy</option>
                         <option value="Family Movies">Family Movies</option>
-                    </select>
+                    </select>                  
             </div>
             <br></br>
             <br></br>
@@ -57,4 +61,3 @@ function MovieList({ movies }) {
 
 export default MovieList
 
-    

@@ -5,7 +5,6 @@ import {useHistory} from "react-router-dom"
 function Movie({movie}) {
     
     const history = useHistory()
-    
     function movieDetails() { 
         history.push(`/movies/${movie.id}`) 
     }

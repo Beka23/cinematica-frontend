@@ -7,7 +7,7 @@ function MostPopularMovies({ movies }) {
 
     return (
         <div>
-            <h3 className="white-texts">Most popular</h3>
+            <div><h3 className="most-popular">Most popular</h3></div>
             <div className="cards">
                 {popluarMovie.map((movie) => {
                     return <PopularMovie key={movie.id} movie={movie}/>

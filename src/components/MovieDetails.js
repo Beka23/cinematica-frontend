@@ -3,17 +3,18 @@ import ReactPlayer from 'react-player'
 import { useParams } from "react-router-dom";
 import LikesDislikes from "./LikesDislikes";
 import Reviews from "./Reviews";
+import { Button, Form } from 'semantic-ui-react'
+import { useAlert } from 'react-alert'
 
 
-
-function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
+function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies, watchLaterList, addToWatchLaterList}) {
 
     const [movie, setMovie] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams()
     const [reviewContent, setReviewContent] = useState("")
     const [reviews, setReviews] = useState([])
-   
+    const alert = useAlert()
 
 
 
@@ -61,7 +62,7 @@ function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
 
             setReviewContent("")
         } else {
-            alert("Please sign in to leave a review")
+            alert.show("Please sign in to leave a review")
         }
     }
     //adds movie review to the page
@@ -99,15 +100,30 @@ function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
 
 
 
+    // adds movie to watch later list
+    function handleAddToWatchList() {
+        if (currentUser && !watchLaterList.includes(movie)) {
+            addToWatchLaterList(movie)
+            alert.show(`${movie.name} has been added to your watch later list.`)
+        } else if(watchLaterList.includes(movie)) {
+            alert.show(`${movie.name} is already in your watch list.`)
+        }  else {
+            alert.show('Please login or signup.')
+        }
+    }
+
+   
+
     return (
 
         <div>
-            <h5 className="movie-detail-name">{movie.name}</h5>
+            <h2 className="movie-detail-name">{movie.name}</h2>
             <ReactPlayer className="movie" url={movie.youtube_url} controls />
-            <h5 className="movie-detail-genre"> Genres: {movie.genre.name}</h5>
+            <div className="movie-detail-name">
+            </div>
+            <h4 className="movie-detail-genre"> Genres: {movie.genre.name}</h4>
             <p className="movie-p-tag">{movie.description}</p>
             <div className="movie-info">
-
                 <LikesDislikes
                     movie={movie}
                     onUpdateMovieLikes={onUpdateMovieLikes}
@@ -115,29 +131,29 @@ function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies }) {
                     addToFavMovies={addToFavMovies}
                     removeFromFavMovies={removeFromFavMovies}
                 />
-
-             
-
-
-
-                <h3>Reviews: </h3>
-
-                <div className="review">
-                    <form onSubmit={handleReviews} >
-                        <input
+                 <button className="button" onClick={handleAddToWatchList}> Watch later</button>
+                <h3>
+                    Reviews
+                    <div class="line-1"></div>
+                </h3>
+                <div className="review-content">
+                {reviews.map((review) => {
+                        return <Reviews key={review.id} review={review} currentUser={currentUser} onDeleteReview={handleDeleteReview} onUpdateReview={handleUpdateReview} />
+                    })}
+                </div>
+                    <br></br>
+                     {/* <div className="review"> */}
+                    <form onSubmit={handleReviews}>
+                        <Form.TextArea
                             className="review-input"
                             type="text"
                             value={reviewContent}
                             autoComplete="off"
                             placeholder="Add a review"
-                            onChange={(e) => { setReviewContent(e.target.value) }}></input>
-                        <button type="submit">Post</button>
+                            onChange={(e) => { setReviewContent(e.target.value) }}></Form.TextArea>
+                        <Button type="submit"  labelPosition='left' icon='edit' primary>Post</Button>
                     </form>
-                    <br></br>
-                    {reviews.map((review) => {
-                        return <Reviews key={review.id} review={review} currentUser={currentUser} onDeleteReview={handleDeleteReview} onUpdateReview={handleUpdateReview} />
-                    })}
-                </div>
+                {/* </div> */}
             </div>
         </div>
     )

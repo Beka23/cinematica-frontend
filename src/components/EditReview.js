@@ -31,11 +31,12 @@ function EditReview({ review, onUpdateReview }) {
             <form className="edit-message" onSubmit={handleFormSubmit}>
                 <input
                     type="text"
+                    className="form-input"
                     autoComplete="off"
                     value={reviewBody}
                     onChange={(e) => setReviewBody(e.target.value)}
                 />
-                <input type="submit" value="Save" />
+                <input type="submit" className="button" value="Save" />
             </form>
 
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import {useHistory} from "react-router-dom"
 
 function PopularMovie({movie}) {
@@ -17,7 +17,6 @@ function PopularMovie({movie}) {
             <div className="card-info">
                 <ul>
                     <img className="movie-image" src={movie.image} alt={movie.name} onClick={movieDetails}></img>
-                    {/* {movie.name} */}
                 </ul>
             </div>
         </div>

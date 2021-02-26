@@ -3,13 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import pkg from 'semantic-ui-react/package.json';
+// import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+// import AlertTemplate from 'react-alert-template-basic'
 
+import { positions, Provider } from "react-alert";
+import AlertMUITemplate from "react-alert-template-mui";
+
+
+const options = {
+  // you can also just use 'bottom center'
+  position: positions.MIDDLE,
+  timeout: 5000
+}
 
 
 
 ReactDOM.render(
   <React.StrictMode>
+     <Provider template={AlertMUITemplate} {...options}>
     <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
