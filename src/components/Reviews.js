@@ -51,6 +51,6 @@ function Reviews({ review, currentUser, onDeleteReview, onUpdateReview }) {
     )
 }
 
-export default Reviews
+export default Reviews;
 
 
