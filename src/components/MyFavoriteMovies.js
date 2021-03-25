@@ -18,5 +18,5 @@ function MyFavoriteMovies({ favMovie }) {
 
 }
 
-export default MyFavoriteMovies
+export default MyFavoriteMovies;
 
