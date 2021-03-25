@@ -16,4 +16,4 @@ function WatchLaterPage({watchLaterList, deleteWatchLaterMovie}) {
     )
 }
 
-export default WatchLaterPage
+export default WatchLaterPage;
