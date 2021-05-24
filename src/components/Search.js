@@ -32,5 +32,5 @@ function Search({ search, setSearch, voiceSearch, setVoiceSearch }) {
     )
 }
 
-export default Search
+export default Search;
 
