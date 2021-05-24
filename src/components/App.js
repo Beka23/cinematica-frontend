@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import Header from "./Header"
+import React, { useEffect, useState } from "react";
+import Header from "./Header";
 import MovieList from "./MovieList"
 import Login from "./Login"
 import Signup from "./Signup"
@@ -143,5 +143,5 @@ function App() {
   );
 }
 
-export default App
+export default App;
 
