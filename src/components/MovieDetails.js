@@ -159,4 +159,4 @@ function MovieDetails({ currentUser, addToFavMovies, removeFromFavMovies, watchL
     )
 }
 
-export default MovieDetails
+export default MovieDetails;
