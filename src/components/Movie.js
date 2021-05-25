@@ -20,4 +20,4 @@ function Movie({movie}) {
     )
 }
 
-export default Movie
+export default Movie;
