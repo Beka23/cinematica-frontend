@@ -1,7 +1,7 @@
-import React from "react"
-import { useHistory } from "react-router-dom"
+import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function Navbar({ currentUser, setCurrentUser }) {
 
