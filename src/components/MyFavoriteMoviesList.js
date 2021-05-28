@@ -27,4 +27,4 @@ function MyFavoriteMoviesList({ movie }) {
     )
 }
 
-export default MyFavoriteMoviesList
+export default MyFavoriteMoviesList;
