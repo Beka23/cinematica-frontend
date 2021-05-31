@@ -1,5 +1,5 @@
-import React from "react"
-import { useAlert } from 'react-alert'
+import React from "react";
+import { useAlert } from 'react-alert';
 
 
 function LikesDislikes({
