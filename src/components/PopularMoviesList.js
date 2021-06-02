@@ -1,5 +1,5 @@
-import React from "react"
-import PopularMovie from "./PopularMovie"
+import React from "react";
+import PopularMovie from "./PopularMovie";
 
 function MostPopularMovies({ movies }) {
 
@@ -17,5 +17,5 @@ function MostPopularMovies({ movies }) {
     )
 }
 
-export default MostPopularMovies
+export default MostPopularMovies;
 
