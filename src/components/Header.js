@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
 import ReactPlayer from 'react-player'
 
 function Header({ currentUser, setCurrentUser}) {
