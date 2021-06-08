@@ -1,6 +1,5 @@
-import React from "react"
-import MyFavoriteMoviesList from "./MyFavoriteMoviesList"
-
+import React from "react";
+import MyFavoriteMoviesList from "./MyFavoriteMoviesList";
 
 
 function MyFavoriteMovies({ favMovie }) {
