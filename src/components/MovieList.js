@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Movie from "./Movie"
+import Movie from "./Movie";
 import Search from "./Search"
 
 
