@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Movie from "./Movie";
-import Search from "./Search"
+import Search from "./Search";
 
 
 
