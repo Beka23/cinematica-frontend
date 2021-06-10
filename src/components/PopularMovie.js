@@ -1,5 +1,5 @@
-import React from "react"
-import {useHistory} from "react-router-dom"
+import React from "react";
+import {useHistory} from "react-router-dom";
 
 function PopularMovie({movie}) {
 
@@ -23,4 +23,4 @@ function PopularMovie({movie}) {
     )
 }
 
-export default PopularMovie
+export default PopularMovie;
