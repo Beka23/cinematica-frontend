@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import EditReview from "./EditReview"
+import EditReview from "./EditReview";
 
 
 function Reviews({ review, currentUser, onDeleteReview, onUpdateReview }) {
