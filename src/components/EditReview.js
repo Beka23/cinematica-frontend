@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 function EditReview({ review, onUpdateReview }) {
 
@@ -43,4 +43,4 @@ function EditReview({ review, onUpdateReview }) {
     )
 }
 
-export default EditReview;
+export default EditReview
