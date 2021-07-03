@@ -30,4 +30,4 @@ function WatchLaterMovie({ movie, deleteWatchLaterMovie }) {
     )
 }
 
-export default WatchLaterMovie
+export default WatchLaterMovie;
