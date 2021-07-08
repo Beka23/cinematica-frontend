@@ -1,5 +1,5 @@
-import React, {useState} from "react" 
-import { useHistory } from "react-router-dom"
+import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 
 
 function  Signup({setCurrentUser, currentUser}) {
@@ -60,4 +60,4 @@ function  Signup({setCurrentUser, currentUser}) {
 }
 
 
-export default Signup
+export default Signup;
