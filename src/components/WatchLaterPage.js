@@ -1,5 +1,5 @@
-import React from "react";
-import WatchLaterMovie from "./WatchLaterMovie";
+import React from "react"
+import WatchLaterMovie from "./WatchLaterMovie"
 
 function WatchLaterPage({watchLaterList, deleteWatchLaterMovie}) {
 
@@ -16,4 +16,4 @@ function WatchLaterPage({watchLaterList, deleteWatchLaterMovie}) {
     )
 }
 
-export default WatchLaterPage;
+export default WatchLaterPage
