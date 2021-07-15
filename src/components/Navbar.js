@@ -73,7 +73,7 @@ function Navbar({ currentUser, setCurrentUser }) {
 
 }
 
-export default Navbar
+export default Navbar;
 
 const NavWrapper = styled.div`
   display: flex;
