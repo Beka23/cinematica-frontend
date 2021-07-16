@@ -166,5 +166,5 @@ function LikesDislikes({
     )
 }
 
-export default LikesDislikes
+export default LikesDislikes;
 
