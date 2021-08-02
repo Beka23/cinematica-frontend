@@ -1,6 +1,6 @@
-import React from "react";
-import Navbar from "./Navbar";
-import ReactPlayer from 'react-player';
+import React from "react"
+import Navbar from "./Navbar"
+import ReactPlayer from 'react-player'
 
 function Header({ currentUser, setCurrentUser}) {
 
@@ -12,6 +12,5 @@ function Header({ currentUser, setCurrentUser}) {
     )
 }
 
-export default Header;
-
+export default Header
 
