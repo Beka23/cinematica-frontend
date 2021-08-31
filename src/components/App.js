@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
-import Header from "./Header"
-import MovieList from "./MovieList"
-import Login from "./Login"
+import React, { useEffect, useState } from "react";
+import Header from "./Header";
+import MovieList from "./MovieList";
+import Login from "./Login";
 import Signup from "./Signup";
 import WatchLaterPage from "./WatchLaterPage";
 import { BrowserRouter as Router, Route, Switch, Redirect,  BrowserRouter  } from 'react-router-dom';
