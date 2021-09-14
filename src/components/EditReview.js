@@ -43,4 +43,4 @@ function EditReview({ review, onUpdateReview }) {
     )
 }
 
-export default EditReview
+export default EditReview;
