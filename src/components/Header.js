@@ -12,5 +12,5 @@ function Header({ currentUser, setCurrentUser}) {
     )
 }
 
-export default Header
+export default Header;
 
