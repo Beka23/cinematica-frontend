@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react"
+import { React, useEffect, useState } from "react";
 import ReactPlayer from 'react-player'
 import { useParams } from "react-router-dom"
 import LikesDislikes from "./LikesDislikes"
